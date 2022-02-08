@@ -1,0 +1,7 @@
+mixin video(info)
+    a(href=`/videos/${info.id}`)
+        div
+            h3=info.title
+            //p=user
+            video(src="/" + info.fileUrl, controls)
+            p #{info.createAt}

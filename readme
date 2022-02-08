@@ -1,0 +1,16 @@
+Routes
+
+#Root
+/
+/login
+/join
+/search
+
+#User
+/users/logout
+/users/edit-profile
+
+#Video
+/videos/upload
+/videos/:id
+/videos/edit
