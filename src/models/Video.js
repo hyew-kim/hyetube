@@ -8,5 +8,14 @@ const videoSchema = new mongoose.Schema({
   fileUrl: { type: String, required: true, trim: true },
 });
 
+videoSchema.static("formatHashtags", function (hashtags) {
+  console.log(hashtags);
+  return hashtags
+    .split(",")
+    .map((word) =>
+      word.trim().startsWith("#") ? word.trim() : `#${word.trim()}`
+    );
+});
+
 const Video = mongoose.model("Video", videoSchema);
 export default Video;

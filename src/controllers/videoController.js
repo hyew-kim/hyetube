@@ -13,19 +13,20 @@ export const getUpload = (req, res) => {
 };
 export const postUpload = async (req, res) => {
   const {
-    body: { title, description, hastags },
+    body: { title, description, hashtags },
     file: { path: fileUrl },
   } = req;
   try {
     await Video.create({
       title,
       description,
-      hastags,
+      hashtags: Video.formatHashtags(hashtags),
       fileUrl,
       createAt: new Date().toISOString().substring(0, 10),
     });
     return res.redirect("/");
   } catch (error) {
+    console.log(error);
     return res.status(400).render("upload", {
       pageTitle: "Upload",
       errorMessage: error._message,
