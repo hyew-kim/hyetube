@@ -1,0 +1,9 @@
+extends base
+block content
+	h3 Change Information of video
+	em=errorMessage
+	form(method="POST")
+		input(name="title" placehoder="Video Title", value=video.title,required)
+		input(name="description", type="text", placeholder="Desciption",required value=video.description)
+		input(name="hashtags", type="text", placeholder="Hashtags, separated by comma.",required, value=video.hashtags.join())
+		input(value="Save", type="submit")

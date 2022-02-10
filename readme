@@ -13,4 +13,5 @@ Routes
 #Video
 /videos/upload
 /videos/:id
-/videos/edit
+/videos/:id/edit
+/videos/:id/remove

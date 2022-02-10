@@ -9,7 +9,6 @@ const videoSchema = new mongoose.Schema({
 });
 
 videoSchema.static("formatHashtags", function (hashtags) {
-  console.log(hashtags);
   return hashtags
     .split(",")
     .map((word) =>

@@ -1,0 +1,14 @@
+extends base
+block content
+    h2 Join HYETUBE
+    em=errorMessage
+    form(method="POST")
+        input(name="email", placeholder="Email",type="email", required)
+        input(name="username",placeholder="Username", type="text", required)
+        input(name="password", placeholder="Password",type="password", required)
+        input(name="password2", placeholder="Confrim Password",type="password", required)
+        input(type="submit", value="JOIN")
+    hr
+    div
+        span Did you get account ?
+        a(href="/login") Login now &rarr;
