@@ -2,7 +2,10 @@ extends base
 include mixins/video
 
 block content
-    each video in videos
-        +video(video)
-    else
-        em There's no content.
+    div#container
+        h2.ir-hidden Search
+        each video in videos
+            a(href=`/videos/${video.id}`)
+                +video(video)
+        else
+            em There's no content.

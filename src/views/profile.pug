@@ -1,0 +1,9 @@
+extends base
+include mixins/video
+
+block content
+    h2=pageTitle
+    each video in user.videos
+        a(href=`/videos/${video.id}`)
+            +video(video)
+    

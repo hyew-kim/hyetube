@@ -1,3 +1,4 @@
+import session from "express-session";
 import multer from "multer";
 
 export const localMiddleware = (req, res, next) => {
@@ -17,6 +18,13 @@ export const publicOnlyMiddleware = (req, res, next) => {
   if (!req.session.loggedIn) return next();
   else res.redirect("/");
 };
+
+export const avatarUpload = multer({
+  dest: "uploads/avatars/",
+  limits: {
+    fileSize: 1 * 1024 * 1024,
+  },
+});
 
 export const videoUpload = multer({
   dest: "uploads/videos/",

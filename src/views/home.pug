@@ -1,9 +1,10 @@
 extends base
 include mixins/video
 block content
-    h2 Welcome HYETUBE
+    h2 Welcome #{siteName}
     div#container
         each video in videos
-            +video(video)
+            a(href=`/videos/${video.id}`)
+                +video(video)
         else
-            p Nothing Found
+            em Nothing Found

@@ -1,10 +1,11 @@
 mixin video(info)
-    a(href=`/videos/${info.id}`)
-        div
-            h3=info.title
-            //p=user
-            video(src="/" + info.fileUrl)
-            p
-                each hashtag in info.hashtags
-                    span=hashtag
-            small #{info.createAt}
+    div#videoContent
+        h3=info.title
+        video(src="/" + info.fileUrl)
+        br
+        small Upload By 
+            a(href=`/users/${info.owner._id}`)=info.owner.username
+        small #{info.createAt}
+        p
+            each hashtag in info.hashtags
+                span #{hashtag} &nbsp;

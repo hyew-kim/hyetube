@@ -9,7 +9,8 @@ Routes
 #User
 /users/logout
 /users/edit-profile
-
+/users/change-password
+/users/:id
 #Video
 /videos/upload
 /videos/:id

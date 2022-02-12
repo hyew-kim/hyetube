@@ -24,6 +24,8 @@ html(lang="ko")
                             a(href="/users/logout") LOGOUT
                         li
                             a(href="/videos/upload") UPLOAD
+                        li
+                            a(href=`/users/${loggedInUser._id}`) MYPROFILE
             form(action="/search")#action
                 input(type="text", name="keyword", required, placehoder="Search")
                 input(type="submit", value="Search")

@@ -1,11 +1,12 @@
 extends base
 block content
+    h2 Login #{siteName}
     em=errorMessage
     form(method="POST")
         input(name="email",placeholder="Email", type="email", required)
         input(name="password", placeholder="Password",type="password", required)
         input(type="submit", value="Login")
-        a(href="users/github/start") Continue with Github &rarr;
+        a(href="/users/github/start") GithubLogin &rarr; 
     hr
     div
         span You don't have an account?
