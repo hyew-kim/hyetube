@@ -4,33 +4,37 @@ html(lang="ko")
         title #{pageTitle} | #{siteName}
         meta(property="og:image", content="")
         link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer")
-        link(rel="stylesheet", href="/static/css/styles.css")
+        link(rel="stylesheet", href="/static/css/main.css")
     body
-        header
-            h1
-                a(href="/")
-                    i(class="fab fa-youtube")
-            nav#gnb
-                ul
-                    li
-                        a(href="/") HOME
-                    if !loggedIn
+        div.wrapper
+            header#header
+                h1
+                    a(href="/")
+                        i(class="fab fa-large fa-youtube")
+                a(href="#" class="menu")
+                    span 내비게이션 열기/닫기
+                nav#gnb(class="close")
+                    ul
                         li
-                            a(href="/login") LOGIN
-                        li
-                            a(href="/join") JOIN
-                    else
-                        li
-                            a(href="/users/logout") LOGOUT
-                        li
-                            a(href="/videos/upload") UPLOAD
-                        li
-                            a(href=`/users/${loggedInUser._id}`) MYPROFILE
-            form(action="/search")#action
-                input(type="text", name="keyword", required, placehoder="Search")
-                input(type="submit", value="Search")
-        main
-            block content
-        include ./partials/footer.pug
-        script(src="/static/js/main.js") 
-        block scripts
+                            a(href="/") HOME
+                        if !loggedIn
+                            li
+                                a(href="/login") LOGIN
+                            li
+                                a(href="/join") JOIN
+                        else
+                            li
+                                a(href="/users/logout") LOGOUT
+                            li
+                                a(href="/videos/upload") UPLOAD
+                            li
+                                a(href=`/users/${loggedInUser._id}`) MYPROFILE
+                form(action="/search")#search
+                    input(type="text", name="keyword", required, placeholder="Search")
+                    button(type="submit", value="Search")
+                        i(class="fas fa-search")
+            main#main
+                block content
+            include ./partials/footer.pug
+            script(src="/static/js/main.js") 
+            block scripts

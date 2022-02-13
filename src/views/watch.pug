@@ -4,22 +4,26 @@ block content
     h2.ir-hidden Watch Video
     div#container
         +video(video)
-        div#control()
-            a(href="#").play
-                i(class="fas fa-play")
-            a(href="#").mute
-                i(class="fa-solid fa-volume-high")
-            input(type="range", min="0",max="1", step="0.1", value="0.5").volume
-            p.time
-                span.currentTime 00:00
-                span /
-                span.totalTime 00:00
-            a(href="#", title="전체화면 f").fullscreen
-                i(class="fas fa-expand")
+        div#control
+            div.videoControls__play
+                a(href="#").play
+                    i(class="fas fa-play")
+                p.time
+                    span.currentTime 00:00
+                    span /
+                    span.totalTime 00:00
             input(type="range", min="0",step="1", value="0").timeline
+            div.videoControls__volume
+                input(type="range", min="0",max="1", step="0.1", value="0.5").volume
+                a(href="#").mute
+                    i(class="fa-solid fa-volume-high")
+            div
+                a(href="#", title="전체화면 f").fullscreen
+                    i(class="fas fa-expand")
         if String(video.owner._id) === String(loggedInUser._id)
-            a(href=`/videos/${video.id}/edit`) Edit &rarr;
-            a(href=`/videos/${video.id}/remove`) Remove &rarr;
+            div.video-manage
+                a.arrow(href=`/videos/${video.id}/edit`) Edit &rarr;
+                a.arrow(href=`/videos/${video.id}/remove`) Remove &rarr;
     if loggedIn
         div.video__comments
             form.video__comment-form#commentForm

@@ -2,9 +2,8 @@ extends base
 include mixins/video
 block content
     h2 Welcome #{siteName}
-    div#container
+    div#container.home
         each video in videos
-            a(href=`/videos/${video.id}`)
-                +video(video)
+            +video(video)
         else
             em Nothing Found

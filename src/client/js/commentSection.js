@@ -1,6 +1,7 @@
 const videoContent = document.querySelector("#videoContent");
 const form = document.querySelector("#commentForm");
 const videoComments = document.querySelector(".video__comment-ul");
+const textarea = document.querySelector("textarea");
 
 const addComment = function (text, id) {
   const newComment = document.createElement("li");
@@ -40,6 +41,7 @@ const handleSubmit = async function (evt) {
 
 const handleXBtn = async function (evt) {
   const { target } = evt;
+  if (target.localName === "li") return false;
   const li = target.closest("li");
   if (!li) return false;
   const id = li.getAttribute("data-id");

@@ -1,17 +1,18 @@
 import express from "express";
 import session from "express-session";
 import MongoStore from "connect-mongo";
-import rootRouter from "./routes/rootRouter";
-import userRouter from "./routes/userRouter";
-import videoRouter from "./routes/videoRouter";
-import { localMiddleware } from "./middlewares";
-import apiRouter from "./routes/apiRouter";
+import rootRouter from "./routes/rootRouter.js";
+import userRouter from "./routes/userRouter.js";
+import videoRouter from "./routes/videoRouter.js";
+import { localMiddleware } from "./middlewares.js";
+import apiRouter from "./routes/apiRouter.js";
 
 const app = express();
 
 export default app;
 
 app.set("view engine", "pug");
+//process.cwd(): package.json이 있는 root
 app.set("views", process.cwd() + "/src/views");
 
 app.use(express.urlencoded({ extended: true }));

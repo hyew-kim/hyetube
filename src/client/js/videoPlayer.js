@@ -8,6 +8,7 @@ const timeStamp = document.querySelector(".time");
 const current = timeStamp.querySelector(".currentTime");
 const total = timeStamp.querySelector(".totalTime");
 const timeline = document.querySelector(".timeline");
+const controller = document.querySelector("#control");
 
 let volume = 0.5;
 let videoTimerId = "";
@@ -61,7 +62,7 @@ const handleFullscreenIcon = function () {
 const handleKeydown = function (evt) {
   const { key, target } = evt;
   const fullscreen = document.fullscreenElement;
-  if (target.localName !== "textarea") {
+  if (target.localName !== "textarea" && target.localName !== "input") {
     if ((key === "Escape" || key === "Esc") && fullscreen)
       handleFullscreenBtn();
     if (key === "f" && !fullscreen) handleFullscreenBtn();
@@ -96,9 +97,9 @@ const handleTimeline = function (evt) {
 };
 const handleMousemove = function () {
   clearTimeout(videoTimerId);
-  video.classList.add("on");
+  controller.classList.add("on");
   timerId = setTimeout(function () {
-    video.classList.remove("on");
+    controller.classList.remove("on");
   }, 1000 * 4);
 };
 
