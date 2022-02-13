@@ -5,6 +5,7 @@ import rootRouter from "./routes/rootRouter";
 import userRouter from "./routes/userRouter";
 import videoRouter from "./routes/videoRouter";
 import { localMiddleware } from "./middlewares";
+import apiRouter from "./routes/apiRouter";
 
 const app = express();
 
@@ -14,7 +15,7 @@ app.set("view engine", "pug");
 app.set("views", process.cwd() + "/src/views");
 
 app.use(express.urlencoded({ extended: true }));
-
+app.use(express.json());
 app.use(
   session({
     secret: process.env.COOKIE_SECRET,
@@ -30,3 +31,4 @@ app.use("/static", express.static("assets"));
 app.use("/", rootRouter);
 app.use("/users", userRouter);
 app.use("/videos", videoRouter);
+app.use("/api", apiRouter);

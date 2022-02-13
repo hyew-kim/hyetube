@@ -59,11 +59,14 @@ const handleFullscreenIcon = function () {
 };
 
 const handleKeydown = function (evt) {
-  const { key } = evt;
+  const { key, target } = evt;
   const fullscreen = document.fullscreenElement;
-  if ((key === "Escape" || key === "Esc") && fullscreen) handleFullscreenBtn();
-  if (key === "f" && !fullscreen) handleFullscreenBtn();
-  if (key === " ") handlePlay();
+  if (target.localName !== "textarea") {
+    if ((key === "Escape" || key === "Esc") && fullscreen)
+      handleFullscreenBtn();
+    if (key === "f" && !fullscreen) handleFullscreenBtn();
+    if (key === " ") handlePlay();
+  }
 };
 const formatTime = (time) =>
   new Date(time * 1000).toISOString().substring(11, 19);
