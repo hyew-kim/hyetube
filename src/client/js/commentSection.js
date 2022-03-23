@@ -6,13 +6,15 @@ const textarea = document.querySelector("textarea");
 const addComment = function (text, id) {
   const newComment = document.createElement("li");
   const span = document.createElement("span");
+  const span2 = document.createElement("span");
   const remove = document.createElement("a");
   const i = document.createElement("i");
   remove.setAttribute("href", "#");
   i.setAttribute("class", "fa-solid fa-xmark");
   span.innerText = `${text}`;
   remove.appendChild(i);
-  newComment.append(span, remove);
+  span2.appendChild(remove);
+  newComment.append(span, span2);
   newComment.dataset.id = id;
   videoComments.prepend(newComment);
 };

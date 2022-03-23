@@ -53,10 +53,15 @@ const handleFullscreenBtn = function () {
 };
 const handleFullscreenIcon = function () {
   const fullscreen = document.fullscreenElement;
-  fullscreenBtn.querySelector("i").className = fullscreen
-    ? "fas fa-compress"
-    : "fas fa-expand";
-  fullscreenBtn.setAttribute("title", "전체화면 종료 esc");
+  if (fullscreen) {
+    fullscreenBtn.querySelector("i").className = "fas fa-compress";
+    fullscreenBtn.setAttribute("title", "전체화면 종료(esc)");
+    container.classList.add("full");
+  } else {
+    fullscreenBtn.querySelector("i").className = "fas fa-expand";
+    fullscreenBtn.setAttribute("title", "전체화면(f)");
+    container.classList.remove("full");
+  }
 };
 
 const handleKeydown = function (evt) {
