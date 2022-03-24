@@ -480,7 +480,7 @@ body {
   column-gap: 20px;
   #videoContent {
     position: relative;
-    width: 300px;
+    width: 300px !important;
     height: 300px !important;
     video {
       object-fit: contain;
